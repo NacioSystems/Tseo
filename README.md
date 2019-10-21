@@ -1,6 +1,11 @@
-# Tseo
-Proyecto de robot resuelve laberintos de NacioSystems:
+# Tseo de NacioSystems:
 
+Versión 1.0
+Fecha: 21/10/2019
+
+Este proyecto es un robot llamado Tseo, que resuelve laberintos. Realizado por NacioSystems (O Milladoiro):
+
+Introducción:
 El robot está basado en la plataforma Pololu Zumo Arduino, al que se le incorporan tres sensores de distanciaVL6180, uno en el frontal, y otros dos a cada lado. Se incorpora también un encoder acoplado a la cadena de desplazamiento. Los sensores VL6180 están centrados en la caja soporte de baterías. Por último, aunque no necesario, se incorpora el sensor QTR frontal de Pololu Zumo, que se utiliza para leer la banda de entrada en meta.
 
 El programa lee las paredes del laberinto a través de los sensores VL, con lo que puede determinar en que dirección se puede mover (no hay pared), hacia adelante, derecha, izquierda o dar la vuelta si es necesario. Con cuando avanza cuenta los pasos del encoder con lo que puede saber cuanto se mueve y determinar si ha avanzado una casilla. Por otra pare, para hacer los giros utiliza el giróscopo incluido en el Zumo, garantizando que los giros son completos y se encuentra en la orientación de destino. Como se indicó anteriormente, a través del sensor QTR frontal el robot puede saber cuando entra en la meta.
@@ -58,6 +63,9 @@ Por otra parte Tseo, que no conoce el laberinto que va a resolver, puede elegir 
 
 Desplazamientos y giros:
 Para los desplazamientos y giros se utilizan las rutinas de Pololu ZumoMotors y L3G TurnSensor. El robot se desplaza a la máxima velocidad que le permiten sus motores (de Minisumo), con la excepción de que tenga que hacer un giro, entonces reduce la velocidad en un 30% para compensar la inercia, que es bastante. Debido a su masa, en el momento que detecta el cambio de condiciones, por ejemplo un cruce de caminos, el robot recorre una distancia considerable después del frenazo, lo que dificulta situarse en la posición correcta para los giros. Para ello utiliza una velocidad menor y cuenta los pasos desde que toma la decisión de frenar para saber si está bien situado. Lo mismo ocurre en los giros, controlados por giróscopo, una vez completado el giro la inercia del robot hace que gire un poco de más, sobre 2º, por lo que, en función de la velocidad de giro, hay que completar ángulos más cortos, de unos 88º.
+
+Programa:
+El programa está realizado con el IDE Arduino, para su programación directa a través de cable USB. En la carpeta software se puede ver el programa comentado.
 
 Construcción:
 La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Arduino, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un Arduino Uno, el sensor QTR del Zumo Refectance Sensor Array, el sensor de distancias VL6180 y el encoder HC-020K.

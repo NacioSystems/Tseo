@@ -1,5 +1,7 @@
 // RESUELVE LABERINTOS
 // VERSIÓN 3.0 29/10/2018
+// Por Ignacio Otero
+// Ayuda de la idea de Pololu
 
 // PINES USADOS EN ESTA VERSIÓN (19)
 // BlueTooth y Serial (2) = 0, 1

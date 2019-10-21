@@ -54,7 +54,7 @@ X Y  00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15
 Giros:
 Cada vez que el robot gira a la derecha su orientación inicial se incrementa en 90º, mientras que si gira a la izquierda su orientación inicial se decrementa 90º. No hay que decir que cuando da media vuelta supone un giro de 180º, o lo que es lo mismo dos giros de 90º. 
 
-Condiciones iniciales
+Condiciones iniciales:
 Se supone que la posición de inicio siempre es la misma, la casilla (0,0).
 También se supone que la meta está siempre en el mismo sito, filas 7 y 8, columnas 7 y 8. La meta está cerrada totalmente a excepción de la entrada, que será siempre por la falta de muro entra las casillas (8,8) y (9,8).
 El robot tendrá que saber en que orientación arranca, en sentido creciente del eje X o sentido creciente del eje Y, direcciones 180º o 90º respectivamente. Tseo utiliza el encoder, antes de inicio de la prueba, para indicarle la orientación de inicio, 180º por defecto, o 90º si se cambia.

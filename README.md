@@ -6,11 +6,13 @@ Fecha: 21/10/2019
 Este proyecto es un robot llamado Tseo, que resuelve laberintos. Realizado por NacioSystems (O Milladoiro):
 
 Introducción:
+
 El robot está basado en la plataforma Pololu Zumo Arduino, al que se le incorporan tres sensores de distanciaVL6180, uno en el frontal, y otros dos a cada lado. Se incorpora también un encoder acoplado a la cadena de desplazamiento. Los sensores VL6180 están centrados en la caja soporte de baterías. Por último, aunque no necesario, se incorpora el sensor QTR frontal de Pololu Zumo, que se utiliza para leer la banda de entrada en meta.
 
 El programa lee las paredes del laberinto a través de los sensores VL, con lo que puede determinar en que dirección se puede mover (no hay pared), hacia adelante, derecha, izquierda o dar la vuelta si es necesario. Con cuando avanza cuenta los pasos del encoder con lo que puede saber cuanto se mueve y determinar si ha avanzado una casilla. Por otra pare, para hacer los giros utiliza el giróscopo incluido en el Zumo, garantizando que los giros son completos y se encuentra en la orientación de destino. Como se indicó anteriormente, a través del sensor QTR frontal el robot puede saber cuando entra en la meta.
 
 Tablero:
+
 El laberinto está formado por un tablero cuadrado de 256 celdas cuadradas (16x16), cada una de ellas de 18cm de lado.
 El tablero está organizado en dos ejes (X, Y), de tal manera que el eje X está orientado en el sentido 0º / 180º, y el eje Y está orientado en el sentido perpendicular 90º / 270º. Para entender esta orientación pensemos en la pantalla del ordenador, 0º sería hacia arriba, 180º hacia abajo, 90º hacia la derecha y 270º hacia la izquierda. Cada vez que el robot avanza, se desplaza en el eje X o en el eje Y, de tal manera que si avanza hacia 180º, el eje X se incrementa, mientras que si avanza hacia 0º el eje X de decremeta. Por otra parte si avanza hacia la dirección 90º el eje Y se incrementa, y si avanza hacia 270º el eje Y se decrementa.
 
@@ -18,52 +20,52 @@ Ejemplo de tablero y colocación de casillas (16,16), y orientación física:
 
 X Y  00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15
    
-00 |                             0º                                |
+00                              0º
 
    
-01 |                             | Eje X                           |
+01                              | Eje X
    
    
-02 |                            180º                               |
+02                             180º
    
    
-03 |                                                               |
+03
    
    
-04 |                                                               |
+04
    
    
-05 |                     270º <--Eje Y--> 90º                      |
+05 270º <--Eje Y--> 90º
    
    
-06 |                                                               |
+06
    
    
-07 |                           |       |                           |
+07
 
    
-08 |                           |       |                           |
+08
 
    
-09 |                                                               |
+09
 
    
-10 |                                                               |
+10
   
    
-11 |                                                               |
+11
  
    
-12 |                                                               |
+12
 
    
-13 |                                                               |
+13
 
    
-14 |                                                               |
+14
   
    
-15 |                                                               |
+15
    
    
 

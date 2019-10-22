@@ -18,37 +18,37 @@ Ejemplo de tablero y colocación de casillas (16,16), y orientación física:
 
 X Y  00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15
    +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+ 
-00 |   
+00 |                             0º                                |
    +   +   +   +   +   +   +   + /\+   +   +   +   +   +   +   +   + 
-01 |   
+01 |                             | Eje X                           |
    +   +   +   +   +   +   +   + \/+   +   +   +   +   +   +   +   + 
-02 |                            180º
+02 |                            180º                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-03 |
+03 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-04 |
+04 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-05 |                     270º <--Eje Y--> 90º
+05 |                     270º <--Eje Y--> 90º                      |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-06 |
+06 |                                                               |
    +   +   +   +   +   +   +   +---+---+   +   +   +   +   +   +   + 
-07 |                           |       |
+07 |                           |       |                           |
    +   +   +   +   +   +   +   +   M   +   +   +   +   +   +   +   + 
-08 |                           |       |
+08 |                           |       |                           |
    +   +   +   +   +   +   +   +---+   +   +   +   +   +   +   +   + 
-09 |
+09 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-10 |
+10 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-11 |
+11 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-12 |
+12 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-13 |
+13 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-14 |
-+   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
-15 |
+14 |                                                               |
+   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+15 |                                                               |
    +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
 
 Giros:
@@ -70,11 +70,12 @@ El programa está realizado con el IDE Arduino, para su programación directa a 
 Construcción:
 La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Arduino, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un Arduino Uno, el sensor QTR del Zumo Refectance Sensor Array, el sensor de distancias VL6180 y el encoder HC-020K.
 
-Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al arduino, así como los soportes del encoder y los VL. 
+Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al arduino, así como los soportes del encoder y los VL. El el programa para Arduino están indicadas las conexiones de cada pin.
 
 Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a las velocidades para adaptarlas a la inercia del robot. En la fase de desarrollo me resultó imprescindible incorporarle un parachoques a Tseo, ya que las dimensiones de las cadenas hacen que en caso de derrapar o desplazamiento, las cadenas rocen con las paredes levantando al robot, creando un caos, incluso subiendo las paredes.
 
 Piezas impresas:
+
 En la carpeta de piezas impresas, están los modelos Stl del soporte del encoder, del parachoques protector y la carcasa de Tseo, que le dan esa personalidad tan destacada.
 
 Referencias:
@@ -85,3 +86,4 @@ https://www.adafruit.com/product/3316
 https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
 https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
 https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
+

@@ -16,40 +16,102 @@ El tablero está organizado en dos ejes (X, Y), de tal manera que el eje X está
 
 Ejemplo de tablero y colocación de casillas (16,16), y orientación física:
 
-X Y  00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15\n
+X Y  00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15
+
+
    +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+ 
+   
+   
 00 |                             0º                                |
+
+
    +   +   +   +   +   +   +   + /\+   +   +   +   +   +   +   +   + 
+   
+   
 01 |                             | Eje X                           |
    +   +   +   +   +   +   +   + \/+   +   +   +   +   +   +   +   + 
+   
+   
 02 |                            180º                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 03 |                                                               |
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 04 |                                                               |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 05 |                     270º <--Eje Y--> 90º                      |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 06 |                                                               |
+
+
    +   +   +   +   +   +   +   +---+---+   +   +   +   +   +   +   + 
+   
+   
 07 |                           |       |                           |
+
+
    +   +   +   +   +   +   +   +   M   +   +   +   +   +   +   +   + 
+   
+   
 08 |                           |       |                           |
+
+
    +   +   +   +   +   +   +   +---+   +   +   +   +   +   +   +   + 
+   
+   
 09 |                                                               |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 10 |                                                               |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 11 |                                                               |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 12 |                                                               |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 13 |                                                               |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 14 |                                                               |
+
+
    +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   +   + 
+   
+   
 15 |                                                               |
+
+
    +---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+   
+   
 
 Giros:
 Cada vez que el robot gira a la derecha su orientación inicial se incrementa en 90º, mientras que si gira a la izquierda su orientación inicial se decrementa 90º. No hay que decir que cuando da media vuelta supone un giro de 180º, o lo que es lo mismo dos giros de 90º. 
@@ -80,10 +142,16 @@ En la carpeta de piezas impresas, están los modelos Stl del soporte del encoder
 
 Referencias:
 https://www.pololu.com/product/2506
+
 https://store.arduino.cc/arduino-uno-rev3
+
 https://www.pololu.com/product/1419
+
 https://www.adafruit.com/product/3316
+
 https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
+
 https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
+
 https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
 

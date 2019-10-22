@@ -104,6 +104,8 @@ Lo único que hay que construir es el cableado de conexión de los VL6180 y el e
 
 Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a las velocidades para adaptarlas a la inercia del robot. En la fase de desarrollo me resultó imprescindible incorporarle un parachoques a Tseo, ya que las dimensiones de las cadenas hacen que en caso de derrapar o desplazamiento, las cadenas rocen con las paredes levantando al robot, creando un caos, incluso subiendo las paredes.
 
+La carcasa incluye un hueco muy práctico para instalar un interface bluetooth (HL05 - HL06), por si se quiere hacer un seguimiento del funcionamiento desde un terminar remoto.
+
 
 Piezas impresas:
 

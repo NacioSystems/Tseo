@@ -106,6 +106,8 @@ Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a 
 
 La carcasa incluye un hueco muy práctico para instalar un interface bluetooth (HL05 - HL06), por si se quiere hacer un seguimiento del funcionamiento desde un terminar remoto.
 
+También incluye un orificio para instalar un mástil, para llevar la bandera de Teseo, con la que se paseará de modo triunfante por el laberinto. El mástil puede ser un palillo de madera de los utilizados para las brochetas. La bandera está impresa en papel.
+
 
 Piezas impresas:
 

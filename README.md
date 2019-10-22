@@ -9,7 +9,7 @@ Introducción:
 
 El robot está basado en la plataforma Pololu Zumo Arduino, al que se le incorporan tres sensores de distanciaVL6180, uno en el frontal, y otros dos a cada lado. Se incorpora también un encoder acoplado a la cadena de desplazamiento. Los sensores VL6180 están centrados en la caja soporte de baterías. Por último, aunque no necesario, se incorpora el sensor QTR frontal de Pololu Zumo, que se utiliza para leer la banda de entrada en meta.
 
-El programa lee las paredes del laberinto a través de los sensores VL, con lo que puede determinar en que dirección se puede mover (no hay pared), hacia adelante, derecha, izquierda o dar la vuelta si es necesario. Con cuando avanza cuenta los pasos del encoder con lo que puede saber cuanto se mueve y determinar si ha avanzado una casilla. Por otra pare, para hacer los giros utiliza el giróscopo incluido en el Zumo, garantizando que los giros son completos y se encuentra en la orientación de destino. Como se indicó anteriormente, a través del sensor QTR frontal el robot puede saber cuando entra en la meta.
+El programa lee las paredes del laberinto a través de los sensores VL, con lo que puede determinar en que dirección se puede mover (no hay pared), hacia adelante, derecha, izquierda o dar la vuelta si es necesario. Con cuando avanza cuenta los pasos del encoder con lo que puede saber cuanto se mueve y determinar si ha avanzado una casilla. Por otra parte, para hacer los giros utiliza el giróscopo incluido en el Zumo, garantizando que los giros son completos y se encuentra en la orientación de destino. Como se indicó anteriormente, a través del sensor QTR frontal el robot puede saber cuando entra en la meta.
 
 
 Tablero:
@@ -19,8 +19,8 @@ El tablero está organizado en dos ejes (X, Y), de tal manera que el eje X está
 
 Ejemplo de tablero y colocación de casillas (16,16), y orientación física:
 
-X Y  00  01  02  03  04  05  06  07  08  09  10  11  12  13  14  15
-   
+X Y \ 00 - 01 - 02 - 03 - 04 - 05 - 06 - 07 - 08 - 09 - 10 - 11 - 12 - 13 - 14 - 15
+/   
 00                              0º
 
    

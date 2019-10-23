@@ -79,19 +79,19 @@ En la carpeta de piezas impresas, están los modelos Stl del soporte del encoder
 
 ### Referencias:
 
-https://www.pololu.com/product/2506
+   * https://www.pololu.com/product/2506
 
-https://store.arduino.cc/arduino-uno-rev3
+   * https://store.arduino.cc/arduino-uno-rev3
 
-https://www.pololu.com/product/1419
+   * https://www.pololu.com/product/1419
 
-https://www.adafruit.com/product/3316
+   * https://www.adafruit.com/product/3316
 
-https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
+   * https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
 
-https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
+   * https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
 
-https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
+   * https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
 
 ### Autor:
 **Ignacio Otero**

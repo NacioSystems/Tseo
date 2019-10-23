@@ -6,11 +6,13 @@ Fecha: 21/10/2019
 
 Este proyecto es un robot llamado Tseo, que resuelve laberintos. Realizado por NacioSystems (O Milladoiro):
 
+- - - 
+
 ### Introducción:
 
 El robot está basado en la plataforma **Pololu Zumo Arduino**, al que se le incorporan tres sensores de distancia _VL6180_, uno en el frontal, y otros dos a cada lado. Se incorpora también un encoder acoplado a la cadena de desplazamiento. Los sensores _VL6180_ están centrados en la caja soporte de baterías. Por último, aunque no necesario, se incorpora el sensor _QTR_ frontal de Pololu Zumo, que se utiliza para leer la banda de entrada en meta.
 
-El programa lee las paredes del laberinto a través de los sensores VL, con lo que puede determinar en que dirección se puede mover (no hay pared), hacia adelante, derecha, izquierda o dar la vuelta si es necesario. Con cuando avanza cuenta los pasos del encoder con lo que puede saber cuanto se mueve y determinar si ha avanzado una casilla. Por otra parte, para hacer los giros utiliza el giróscopo _L3G_ incluido en el Zumo, garantizando que los giros son completos y se encuentra en la orientación de destino. Como se indicó anteriormente, a través del sensor _QTR_ frontal el robot puede saber cuando entra en la meta._
+El programa lee las paredes del laberinto a través de los sensores VL, con lo que puede determinar en que dirección se puede mover (no hay pared), hacia adelante, derecha, izquierda o dar la vuelta si es necesario. Con cuando avanza cuenta los pasos del encoder con lo que puede saber cuanto se mueve y determinar si ha avanzado una casilla. Por otra parte, para hacer los giros utiliza el giróscopo _L3G_ incluido en el Zumo, garantizando que los giros son completos y se encuentra en la orientación de destino. Como se indicó anteriormente, a través del sensor _QTR_ frontal el robot puede saber cuando entra en la meta.
 
 ![Tseo](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/TSO2%20con%20encoders.jpg "Tseo listo")
 

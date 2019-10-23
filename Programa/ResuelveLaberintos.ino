@@ -1,5 +1,5 @@
 // RESUELVE LABERINTOS
-// VERSIÓN 3.0 29/10/2018
+// VERSIÓN 8.0 29/10/2018
 // Por Ignacio Otero
 // Ayuda de la idea de Pololu
 
@@ -13,8 +13,9 @@
 // Shutdown de sensores LIDAR VL medidores de distancia (1) = 6, 13
 // Batería Zumo (1) = A1 afectado por jumper de batería
 // I2C (2) = A4, A5
+// Lector de interrupciones 0 por pin 2 para contar los pasos
 // Si es necesario se puede utilizar A1 desconectando el jumper de la batería
-// En caso de necesidad podría utilizarse el pin 2 (Led On), y los pines 7 y 8 (MDir1/2)
+// En caso de necesidad podría utilizarse los pines 7 y 8 (MDir1/2)
 // como salidas digitales, siempre con motores parados o QTRSensor desactivado.
 
 // CONFIGURACIÓN
@@ -126,6 +127,17 @@ unsigned long IncTiempo=0; // Es para otras posibiliades
 int32_t alfa=0; // Giros de 90º. Se pueden hacer otros.
 double angulo;  // Para el cálculo de ángulos por la diagonal
 
+// POSICIONAMIENTO DEL ROBOT EN EL TABLERO
+// Contador pasos al andar de frente
+// Variables volátiles para utilizar en las interrupciones
+// en un primer cálculo cada paso anda 0,168111 cm.
+// Una celda de 18cm tendría 107 pasos de largo
+volatile long contador = 0;
+// Es el espacio recorrido total
+// Una casilla son 18cm, un giro 0
+// Cada vez que se llama a Siguesegmento suma 18
+uint16_t ContadorTotal=0; 
+
 int derechoMovimiento = 0;    // En los cambios de velocidad de los motores
 int izquierdoMovimiento = 0;  // utlizamos estas variables
 boolean luces = LOW;          // Indica luces encendidas o apagadas
@@ -135,13 +147,31 @@ bool pasilloIzquierda=false, pasilloRecto=false, pasilloDerecha=false; // Nos va
 int Velocidad =-300; // Se puede eliminar cuando eliminemos el control por BT
 bool META=false; // Nos va a decir si llegamos a la meta
 
+// Dirección de movimiento
+// Por defecto el robot sale en dirección eje x desde (0,0)
+int OR_Inicio=0;
+int orientacion=OR_Inicio; // Es la direción en la que se mueve el robot partiendo de (0,0)
+                           // Puede ser robot en direccion eje x Or_Inicio=0, o eje y Or_Inicio=270
+                           // Guardamos Or_inicio para conocer la dirección de origen en segundas
+                           // El eje x se incrementa en dirección 0 y decrementa en 270
+                           // El eje y se incrementa en dirección 270 y decrementa en 90
+// Coordenadas de posición (x,y)
+// x e y en el rango 0-15
+int8_t x=0,y=0;          
 
 void setup()
 {
     // Inicializamos el serial
     Serial.begin(9600);
  
-    Serial.println(F("Ignacio Otero \n"));
+    // Proceso de configuración
+    Serial.println(F("\n\n-------------------------------------------"));
+    Serial.println(F("Configuración Zumo, versión 8.0, 29/10/2018"));
+    Serial.println(F("             Ignacio Otero"));
+    Serial.println(F("-------------------------------------------\n\n"));
+  
+    // Ponemos las interrupciones en el pin 2
+    attachInterrupt(0, Pasos, RISING);  // Asociamos la interrupción del pin 2 a la función pasos
     
     // Inicializamos la librería wire
     Wire.begin();
@@ -715,3 +745,53 @@ inline uint16_t readBatteryMillivolts()
     sum=sum*15/16-100;
     return ((uint32_t)sum);
 }
+
+//******************************************************************
+// FUNCION DE INTERRUPCIÓN POR PASOS EN LA SUBIDA PARA MOTOR DERECHO
+//******************************************************************
+// Esta función cuenta los pasos del encoder por interrupciones
+// Cada paso corresponde a 0,168111 cm
+void Pasos()
+{
+  contador++;
+}
+
+
+//******************************************************************
+// FUNCION DE AJUSTAR NUEVA CASILLA
+//******************************************************************
+// Actualiza los valores de x e y en función de contador y la orientación
+void ActualizarCasilla()
+{
+  // x, y, contador y orientación son variables generales
+   switch (orientacion) {
+                                 case 0:
+                                 x++;
+                                 break;
+
+                                 case 90:
+                                 y--;
+                                 break;
+
+                                 case 180:   
+                                 x--;
+                                 break;
+
+                                 case 270:
+                                 y++;
+                                 break;
+                             } // end switch
+                             
+                             
+                             // No debería pasar pero
+                             // comprobamos x e y en el rango de 0-15
+                             if(x>15) x=15;
+                             if(x<0)  x=0;
+                             if(y>15) y=15;
+                             if(y<0)  y=0;
+
+                             // Ponemos contador a 0
+                             contador=0;
+                         
+}
+

@@ -21,7 +21,7 @@ El tablero está organizado en dos ejes (X, Y), de tal manera que el eje X está
 
 Ejemplo de tablero y colocación de casillas (16,16), y orientación física:
 
-![Tseo](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Tablero.jpg "Tablero labaerinto")
+![Tablero](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Tablero.jpg "Tablero labaerinto")
    
 
 ### Giros:

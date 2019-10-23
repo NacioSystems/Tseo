@@ -14,12 +14,23 @@ El programa lee las paredes del laberinto a través de los sensores VL, con lo q
 
 ![Tseo](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/TSO2%20con%20encoders.jpg "Tseo listo")
 
+### Materiales:
+* Pololu Zumo for Arduino (sin balda)
+* Arduino UNO
+* 3 x VL6180
+* Zumo Reflectance Sensor Array (QTR)
+* Encoder HC-020K, con rueda ranurada
+* Piezas impresas 3D PLA
+* Tornillos de 2mm de diámetro para sujección Arduino y eje rueda ranurada
+* Cables para conexionado, (recomendado CI perforado universal para soldar cables)
+
+
 ### Tablero:
 
 El laberinto está formado por un tablero cuadrado de 256 celdas cuadradas (16x16), cada una de ellas de 18cm de lado.
 El tablero está organizado en dos ejes (X, Y), de tal manera que el eje X está orientado en el sentido 0º / 180º, y el eje Y está orientado en el sentido perpendicular 90º / 270º. Para entender esta orientación pensemos en la pantalla del ordenador, 0º sería hacia arriba, 180º hacia abajo, 90º hacia la derecha y 270º hacia la izquierda. Cada vez que el robot avanza, se desplaza en el eje X o en el eje Y, de tal manera que si avanza hacia 180º, el eje X se incrementa, mientras que si avanza hacia 0º el eje X de decremeta. Por otra parte si avanza hacia la dirección 90º el eje Y se incrementa, y si avanza hacia 270º el eje Y se decrementa.
 
-Ejemplo de tablero y colocación de casillas (16,16), y orientación física:
+**Ejemplo de tablero y colocación de casillas (16,16), y orientación física:**
 
 ![Tablero](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Tablero.JPG "Tablero labaerinto")
    
@@ -82,3 +93,8 @@ https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoder
 
 https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
 
+### Autor:
+**Ignacio Otero**
+
+### Licencia:
+Todos estos productos están liberados mediante Creative Commons Attribution-ShareAlike 4.0 International License.

@@ -58,7 +58,21 @@ Para los desplazamientos y giros se utilizan las rutinas de Pololu ZumoMotors y 
 
 ### Programa:
 
-El programa está realizado con el IDE Arduino, para su programación directa a través de cable USB. En la carpeta software se puede ver el programa comentado.
+El programa está realizado con el IDE Arduino, para su programación directa a través de cable USB. En la carpeta software se puede ver el programa comentado. El pineado está explicado en los comentarios, sólo es necesario montar el cableado para el encoder y los sensores VL, utilizando los pines de expansión que hay en la placa Zumo. En mi caso utilicé pines hembra en la parte exterior de la *shield* y en el puerto de expansión frontal.
+
+Una vez configurados todos los sensores y sistemas de Tseo, el programa admite el cambio de configuración por defecto, ya sea la selección de la regla mano deracha, mano izquierda, o la conmutación de los ejes del laberinto. Por defecto sale en el eje *X*, pero si el laberinto es diferente se selecciona la salida en el eje *y* mediante un giro de la rueda del encoder. Tseo responderá con unos pitidos de que ya está configurado.
+
+Pulsando el boton de inicio, una pulsación corta, empieza a resolver el laberinto, de tal forma que cada vez que encuentra un cruce decide tomar una decisión que guarda en la memoria. Lo mismo en el caso de que llegue a una pared y no pueda seguir, para dar media vuelta. Cada vez que se da media vuelta sabe que ese camino que recorrió desde la última decisión es incorrecto, por lo que elimina de la memoria ese camino cambiado la penúltima decision tomada, por otra más adecuada. De esa manera, cuando detecta que en su camino el sensor de líneas delantero reconoce el color blanco, sabe que llegó a la meta, parándose y esperando que lo coloquen para iniciar de nuevo el recorrido, esta vez por el camino más corto, teniendo en cuenta las decisiones que fue almacenando el la memoria.
+
+En el caso de que esté recorriendo un pasillo sin ningún cruce, aunque tenga que hacer giros a derecha o izquierda, independientemente de la casillas que avance, seguirá el único camino posible pero no tomará nota de los giros, ya que no aportan información para resolver el labertinto.
+
+Cuando la decision a tomar es un giro, comprueba su orientacion respecto de la marcación en grados del giróscopo y hace girar los motores uno en un sentido y el otro en el inverso, dependiendo si es un giro a derechas o a izquierdas. Va leyendo la marcación del giróscopo y hasta que no alcanza los 90º de giro, mantiene los motores en marcha.
+
+Cuando avanza va comprobando a través de los sensores VL si tiene o no pared a la derecha, izquierda o delante, de esa manera sabe si llegó a un cruce o todavía está pasando el cruce al que había llegado.
+
+Al final, despues de recorrer todo el laberinto, hace un pequeño baile mientras toca una alegre canción.
+
+Por otra parte, a través del encoder, que está conectado a las interrupciones (pin 2), va contando los pasos que avanza, de tal manera que recorrida la longitud de una casilla y sabiendo la orientación en la que está, actualiza su posición. De esa manera sabe en que casilla está en cada momento, de tal manera que reconoce por su situación cuando está en la casilla de meta. Esta funcionalidad está pensada para utilizar el sistema de resolución por inundación, todavía sin implementar por la poca velocidad del Arduino.
 
 
 ### Construcción:
@@ -66,6 +80,8 @@ El programa está realizado con el IDE Arduino, para su programación directa a 
 La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Arduino, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un Arduino Uno, el sensor QTR del Zumo Refectance Sensor Array, el sensor de distancias VL6180 y el encoder HC-020K.
 
 Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al arduino, así como los soportes del encoder y los VL. El el programa para Arduino están indicadas las conexiones de cada pin.
+
+![Tseo en construcción](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Montaje%20Tseo.jpg "Tseo en construcción")
 
 Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a las velocidades para adaptarlas a la inercia del robot. En la fase de desarrollo me resultó imprescindible incorporarle un parachoques a Tseo, ya que las dimensiones de las cadenas hacen que en caso de derrapar o desplazamiento, las cadenas rocen con las paredes levantando al robot, creando un caos, incluso subiendo las paredes.
 
@@ -77,6 +93,10 @@ También incluye un orificio para instalar un mástil, para llevar la bandera de
 ### Piezas impresas:
 
 En la carpeta de piezas impresas, están los modelos Stl del soporte del encoder, del parachoques protector y la carcasa de Tseo, que le dan esa personalidad tan destacada.
+
+![Carcasa Tseo](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Carcasa%20Tseo.JPG "Carcasa Tseo")
+
+![Brazo encoder](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Brazo%20encoder.JPG "Brazo Encoder")
 
 
 ### Referencias:

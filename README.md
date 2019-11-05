@@ -135,7 +135,7 @@ Todos estos productos están liberados mediante Creative Commons Attribution-Sha
 
 [6]:https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
 
-[7]:https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
+[7]:https://github.com/pololu/zumo-shield
 
 [8]:http://rules.oshwdem.org/labirinto_es
 

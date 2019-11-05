@@ -131,7 +131,7 @@ Todos estos productos están liberados mediante Creative Commons Attribution-Sha
 
 [4]:https://www.adafruit.com/product/3316
 
-[5]https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
+[5]:https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
 
 [6]:https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
 

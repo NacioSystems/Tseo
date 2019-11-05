@@ -101,22 +101,41 @@ En la carpeta de piezas impresas, están los modelos Stl del soporte del encoder
 
 ### Referencias:
 
-   * https://www.pololu.com/product/2506
+* *[Pololu Zumo for Arduino][1]*
 
-   * https://store.arduino.cc/arduino-uno-rev3
+* *[Aduino UNO R3][2]*
 
-   * https://www.pololu.com/product/1419
+* *[Pololu Zumo Refectance Sensor Array][3]*
 
-   * https://www.adafruit.com/product/3316
+* *[Sensor LIDAR VL6180][4]*
 
-   * https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
+* *[Encoder CNZ1120][5]*
 
-   * https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
+* *[Encoder HC-020k][6]*
 
-   * https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
+* *[Ejemplos Pololu][7]*
+
+* *[Reglamento Laberinto OSHWDEM][8]*
 
 ### Autor:
 **Ignacio Otero**
 
 ### Licencia:
 Todos estos productos están liberados mediante Creative Commons Attribution-ShareAlike 4.0 International License.
+
+[1]:https://www.pololu.com/product/2506
+
+[2]:https://store.arduino.cc/arduino-uno-rev3
+
+[3]:https://www.pololu.com/product/1419
+
+[4]:https://www.adafruit.com/product/3316
+
+[5]https://tienda.bricogeek.com/componentes/39-fotointerruptor-cnz1120.html
+
+[6]:https://www.amazon.es/Velocidad-HC-020K-Medici%C3%B3n-fotoel%C3%A9ctrico-Encoders/dp/B00MA63ZCW
+
+[7]:https://github.com/pololu/zumo-32u4-arduino-library/tree/master/examples/MazeSol
+
+[8]:http://rules.oshwdem.org/labirinto_es
+

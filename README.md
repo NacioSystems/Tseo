@@ -1,7 +1,7 @@
 # Tseo
 ## de NacioSystems:
 
-Versión 1.0
+Versión 2.0
 Fecha: 21/10/2019
 
 Este proyecto es un robot llamado Tseo, que resuelve laberintos. Realizado por NacioSystems (O Milladoiro):

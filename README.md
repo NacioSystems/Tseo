@@ -77,11 +77,11 @@ Por otra parte, a través del encoder, que está conectado a las interrupciones 
 
 ### Construcción:
 
-La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Arduino, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un Arduino Uno, el sensor QTR del Zumo Refectance Sensor Array, el sensor de distancias VL6180 y el encoder HC-020K.
+La construcción es muy sencilla, la base es la plataforma **_Pololu Zumo for Arduino_**, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un **_Arduino Uno_**, el sensor **QTR** del **_Zumo Refectance Sensor Array_**, el sensor de distancias **_VL6180_** y el encoder **_HC-020K_**.
 
 ![Esquema de conexión](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Conexiones.JPG "Esquema de conexión")
 
-Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al Arduino, así como los soportes del encoder y los VL. *_La Pololu Zumo Shield for Arduino_* se encarga de realizar las conexiones con el resto de componentes, teniendo en cuenta que deberemos dejar los puentes de lectura de la tensión de la batería (A1) y del interfaz **_I2C_** (SCL, SDA), necesarios para comunicarse con el giróscopo **L3G** y los sensores **VL6180** a través de la librería _Whire_.  Para la conexión de la tarjeta _Bluetooth 5V_ es necesario montar tambien una tira de 4 pines hembra en el panel de expansión frontal izquierdo de la _shield_.  El el programa para Arduino están indicadas las conexiones de cada pin.
+Lo único que hay que construir es el cableado de conexión de los **VL6180** y el encoder al Arduino, así como los soportes del encoder y los VL. *_La Pololu Zumo Shield for Arduino_* se encarga de realizar las conexiones con el resto de componentes, teniendo en cuenta que deberemos dejar los puentes de lectura de la tensión de la batería (A1) y del interfaz **_I2C_** (SCL, SDA), necesarios para comunicarse con el giróscopo **L3G** y los sensores **VL6180** a través de la librería _Whire_.  Para la conexión de la tarjeta _Bluetooth 5V_ es necesario montar tambien una tira de 4 pines hembra en el panel de expansión frontal izquierdo de la _shield_.  El el programa para Arduino están indicadas las conexiones de cada pin.
 
 ![Esquema Zumo Arduino](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Esquema%20Zumo.JPG "Esquema Pololu Zumo Arduino")
 
@@ -89,7 +89,7 @@ Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a 
 
 ![Tseo en construcción](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Montaje%20Tseo.jpg "Tseo en construcción")
 
-La carcasa incluye un hueco muy práctico para instalar un interface bluetooth (HL05 - HL06), por si se quiere hacer un seguimiento del funcionamiento desde un terminar remoto.
+La carcasa incluye un hueco muy práctico para instalar el interface _Bluetooth_ (HL05 - HL06), por si se quiere hacer un seguimiento del funcionamiento desde un terminar remoto.
 
 También incluye un orificio para instalar un mástil, para llevar la bandera de Teseo, con la que se paseará de modo triunfante por el laberinto. El mástil puede ser un palillo de madera de los utilizados para las brochetas. La bandera está impresa en papel.
 

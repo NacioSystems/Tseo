@@ -81,9 +81,11 @@ La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Ardui
 
 Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al arduino, así como los soportes del encoder y los VL. El el programa para Arduino están indicadas las conexiones de cada pin.
 
-![Tseo en construcción](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Montaje%20Tseo.jpg "Tseo en construcción")
+![Esquema de conexión](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Conexiones.JPG "Esquema de conexión")
 
 Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a las velocidades para adaptarlas a la inercia del robot. En la fase de desarrollo me resultó imprescindible incorporarle un parachoques a Tseo, ya que las dimensiones de las cadenas hacen que en caso de derrapar o desplazamiento, las cadenas rocen con las paredes levantando al robot, creando un caos, incluso subiendo las paredes.
+
+![Tseo en construcción](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Montaje%20Tseo.jpg "Tseo en construcción")
 
 La carcasa incluye un hueco muy práctico para instalar un interface bluetooth (HL05 - HL06), por si se quiere hacer un seguimiento del funcionamiento desde un terminar remoto.
 

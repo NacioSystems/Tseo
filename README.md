@@ -23,7 +23,7 @@ El programa lee las paredes del laberinto a través de los sensores VL, con lo q
 * Zumo Reflectance Sensor Array (QTR)
 * Encoder HC-020K, con rueda ranurada
 * Piezas impresas 3D PLA
-* Tornillos de 2mm de diámetro para sujección Arduino y eje rueda ranurada
+* Tornillos de 2mm de diámetro para sujeción Arduino y eje rueda ranurada
 * Cables para conexionado, (recomendado CI perforado universal para soldar cables)
 
 
@@ -34,7 +34,7 @@ El tablero está organizado en dos ejes (X, Y), de tal manera que el eje X está
 
 **Ejemplo de tablero y colocación de casillas (16,16), y orientación física:**
 
-![Tablero](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Tablero.JPG "Tablero labaerinto")
+![Tablero](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Tablero.JPG "Tablero laberinto")
    
 
 ### Giros:
@@ -60,17 +60,17 @@ Para los desplazamientos y giros se utilizan las rutinas de Pololu ZumoMotors y 
 
 El programa está realizado con el IDE Arduino, para su programación directa a través de cable USB. En la carpeta software se puede ver el programa comentado. El pineado está explicado en los comentarios, sólo es necesario montar el cableado para el encoder y los sensores VL, utilizando los pines de expansión que hay en la placa Zumo. En mi caso utilicé pines hembra en la parte exterior de la *shield* y en el puerto de expansión frontal.
 
-Una vez configurados todos los sensores y sistemas de Tseo, el programa admite el cambio de configuración por defecto, ya sea la selección de la regla mano deracha, mano izquierda, o la conmutación de los ejes del laberinto. La selección de la regla de inicio es através de una pulsación larga del botón de inicio. Por defecto sale en el eje *X*, pero si el laberinto es diferente se selecciona la salida en el eje *Y* mediante un giro de la rueda del encoder antes del inicio. Tseo responderá con unos pitidos de que ya está configurado.
+Una vez configurados todos los sensores y sistemas de Tseo, el programa admite el cambio de configuración por defecto, ya sea la selección de la regla mano derecha, mano izquierda, o la conmutación de los ejes del laberinto. La selección de la regla de inicio es a través de una pulsación larga del botón de inicio. Por defecto sale en el eje *X*, pero si el laberinto es diferente se selecciona la salida en el eje *Y* mediante un giro de la rueda del encoder antes del inicio. Tseo responderá con unos pitidos de que ya está configurado.
 
-Pulsando el boton de inicio, una pulsación corta, empieza a resolver el laberinto, de tal forma que cada vez que encuentra un cruce decide tomar una decisión que guarda en la memoria. Lo mismo en el caso de que llegue a una pared y no pueda seguir, para dar media vuelta. Cada vez que se da media vuelta sabe que ese camino que recorrió desde la última decisión es incorrecto, por lo que elimina de la memoria ese camino cambiado la penúltima decision tomada, por otra más adecuada. De esa manera, cuando detecta que en su camino el sensor de líneas delantero reconoce el color blanco, sabe que llegó a la meta, parándose y esperando que lo coloquen para iniciar de nuevo el recorrido, esta vez por el camino más corto, teniendo en cuenta las decisiones que fue almacenando el la memoria.
+Pulsando el botón de inicio, una pulsación corta, empieza a resolver el laberinto, de tal forma que cada vez que encuentra un cruce decide tomar una decisión que guarda en la memoria. Lo mismo en el caso de que llegue a una pared y no pueda seguir, para dar media vuelta. Cada vez que se da media vuelta sabe que ese camino que recorrió desde la última decisión es incorrecto, por lo que elimina de la memoria ese camino cambiado la penúltima decisión tomada, por otra más adecuada. De esa manera, cuando detecta que en su camino el sensor de líneas delantero reconoce el color blanco, sabe que llegó a la meta, parándose y esperando que lo coloquen para iniciar de nuevo el recorrido, esta vez por el camino más corto, teniendo en cuenta las decisiones que fue almacenando en la memoria.
 
-En el caso de que esté recorriendo un pasillo sin ningún cruce, aunque tenga que hacer giros a derecha o izquierda, independientemente de la casillas que avance, seguirá el único camino posible pero no tomará nota de los giros, ya que no aportan información para resolver el labertinto.
+En el caso de que esté recorriendo un pasillo sin ningún cruce, aunque tenga que hacer giros a derecha o izquierda, independientemente de las casillas que avance, seguirá el único camino posible pero no tomará nota de los giros, ya que no aportan información para resolver el labertinto.
 
-Cuando la decision a tomar es un giro, comprueba su orientacion respecto de la marcación en grados del giróscopo y hace girar los motores uno en un sentido y el otro en el inverso, dependiendo si es un giro a derechas o a izquierdas. Va leyendo la marcación del giróscopo y hasta que no alcanza los 90º de giro, mantiene los motores en marcha.
+Cuando la decisión a tomar es un giro, comprueba su orientación respecto de la marcación en grados del giróscopo y hace girar los motores uno en un sentido y el otro en el inverso, dependiendo si es un giro a derechas o a izquierdas. Va leyendo la marcación del giróscopo y hasta que no alcanza los 90º de giro, mantiene los motores en marcha.
 
 Cuando avanza va comprobando a través de los sensores VL si tiene o no pared a la derecha, izquierda o delante, de esa manera sabe si llegó a un cruce o todavía está pasando el cruce al que había llegado.
 
-Al final, despues de recorrer todo el laberinto, hace un pequeño baile mientras toca una alegre canción.
+Al final, después de recorrer todo el laberinto, hace un pequeño baile mientras toca una alegre canción.
 
 Por otra parte, a través del encoder, que está conectado a las interrupciones (pin 2), va contando los pasos que avanza, de tal manera que recorrida la longitud de una casilla y sabiendo la orientación en la que está, actualiza su posición. De esa manera sabe en que casilla está en cada momento, de tal manera que reconoce por su situación cuando está en la casilla de meta. Esta funcionalidad está pensada para utilizar el sistema de resolución por inundación, todavía sin implementar por la poca velocidad del Arduino.
 
@@ -79,7 +79,7 @@ Por otra parte, a través del encoder, que está conectado a las interrupciones 
 
 La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Arduino, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un Arduino Uno, el sensor QTR del Zumo Refectance Sensor Array, el sensor de distancias VL6180 y el encoder HC-020K.
 
-Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al arduino, así como los soportes del encoder y los VL. El el programa para Arduino están indicadas las conexiones de cada pin.
+Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al Arduino, así como los soportes del encoder y los VL. El el programa para Arduino están indicadas las conexiones de cada pin.
 
 ![Esquema de conexión](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Conexiones.JPG "Esquema de conexión")
 

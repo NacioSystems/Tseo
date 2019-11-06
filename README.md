@@ -81,7 +81,7 @@ La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Ardui
 
 ![Esquema de conexión](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Conexiones.JPG "Esquema de conexión")
 
-Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al Arduino, así como los soportes del encoder y los VL. El el programa para Arduino están indicadas las conexiones de cada pin.
+Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al Arduino, así como los soportes del encoder y los VL. *_La Pololu Zumo Shield for Arduino_* se encarga de realizar las conexiones con el resto de componentes, teniendo en cuenta que deberemos dejar los puentes de lectura de la tensión de la batería y del interfaz I2C, necesario para comunicarse con el giróscopo **L3G** y los sensores **VL6180** a través de la librería _Whire_.  El el programa para Arduino están indicadas las conexiones de cada pin.
 
 ![Esquema Zumo Arduino](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Esquema%20Zumo.JPG "Esquema Pololu Zumo Arduino")
 

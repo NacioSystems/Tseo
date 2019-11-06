@@ -79,9 +79,11 @@ Por otra parte, a través del encoder, que está conectado a las interrupciones 
 
 La construcción es muy sencilla, la base es la plataforma Pololu Zumo for Arduino, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un Arduino Uno, el sensor QTR del Zumo Refectance Sensor Array, el sensor de distancias VL6180 y el encoder HC-020K.
 
+![Esquema de conexión](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Conexiones.JPG "Esquema de conexión")
+
 Lo único que hay que construir es el cableado de conexión de los VL6180 y el encoder al Arduino, así como los soportes del encoder y los VL. El el programa para Arduino están indicadas las conexiones de cada pin.
 
-![Esquema de conexión](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Conexiones.JPG "Esquema de conexión")
+![Esquema Zumo Arduino](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Esquema%20Zumo.JPG "Esquema Pololu Zumo Arduino")
 
 Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a las velocidades para adaptarlas a la inercia del robot. En la fase de desarrollo me resultó imprescindible incorporarle un parachoques a Tseo, ya que las dimensiones de las cadenas hacen que en caso de derrapar o desplazamiento, las cadenas rocen con las paredes levantando al robot, creando un caos, incluso subiendo las paredes.
 

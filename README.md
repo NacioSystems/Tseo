@@ -45,10 +45,10 @@ Cada vez que el robot gira a la derecha su orientación inicial se incrementa en
 ### Condiciones iniciales:
 
 Se supone que la posición de inicio siempre es la misma, la casilla (0,0).
-También se supone que la meta está siempre en el mismo sito, filas 7 y 8, columnas 7 y 8. La meta está cerrada totalmente a excepción de la entrada, que será siempre por la falta de muro entra las casillas (8,8) y (9,8).
+También se supone que la meta está siempre en el mismo sito, filas 7 y 8, columnas 7 y 8. La meta está cerrada totalmente a excepción de la entrada, que será siempre por la falta de muro entre las casillas (8,8) y (9,8).
 El robot tendrá que saber en que orientación arranca, en sentido creciente del eje X o sentido creciente del eje Y, direcciones 180º o 90º respectivamente. Tseo utiliza el encoder, antes de inicio de la prueba, para indicarle la orientación de inicio, 180º por defecto, o 90º si se cambia.
 
-Por otra parte Tseo, que no conoce el laberinto que va a resolver, puede elegir el sistema para recorrerlo y resolverlo entre tres sistemas, regla de la mano derecha, regla de la mano izquierda o por inundación (en fase de pruebas). Para ello se utiliza el botón del Zumo, dependiendo del tiempo de pulsación de dicho botón. Una pulsación corta inicia el movimiento en base a la regla de la mano derecha, una pulsación de más de 1 segundo hace que arranque con la regla de la mano izquierda, pero si se pulsa más de 3 segundos utiliza la técnica de la inundación.
+Por otra parte Tseo, que no conoce el laberinto que va a resolver, puede elegir el sistema para recorrerlo y resolverlo entre tres opciones; regla de la mano derecha, regla de la mano izquierda o por inundación (en fase de pruebas). Para ello se utiliza el botón del Zumo, dependiendo del tiempo de pulsación de dicho botón. Una pulsación corta inicia el movimiento en base a la regla de la mano derecha, una pulsación de más de 1 segundo hace que arranque con la regla de la mano izquierda, pero si se pulsa más de 3 segundos utiliza la técnica de la inundación.
 
 
 ### Desplazamientos y giros:
@@ -62,9 +62,11 @@ El programa está realizado con el IDE Arduino, para su programación directa a 
 
 Una vez configurados todos los sensores y sistemas de Tseo, el programa admite el cambio de configuración por defecto, ya sea la selección de la regla mano derecha, mano izquierda, o la conmutación de los ejes del laberinto. La selección de la regla de inicio es a través de una pulsación larga del botón de inicio. Por defecto sale en el eje *X*, pero si el laberinto es diferente se selecciona la salida en el eje *Y* mediante un giro de la rueda del encoder antes del inicio. Tseo responderá con unos pitidos de que ya está configurado.
 
-Pulsando el botón de inicio, una pulsación corta, empieza a resolver el laberinto, de tal forma que cada vez que encuentra un cruce decide tomar una decisión que guarda en la memoria. Lo mismo en el caso de que llegue a una pared y no pueda seguir, para dar media vuelta. Cada vez que se da media vuelta sabe que ese camino que recorrió desde la última decisión es incorrecto, por lo que elimina de la memoria ese camino cambiado la penúltima decisión tomada, por otra más adecuada. De esa manera, cuando detecta que en su camino el sensor de líneas delantero reconoce el color blanco, sabe que llegó a la meta, parándose y esperando que lo coloquen para iniciar de nuevo el recorrido, esta vez por el camino más corto, teniendo en cuenta las decisiones que fue almacenando en la memoria.
+Pulsando el botón de inicio, una pulsación corta, empieza a resolver el laberinto, de tal forma que cada vez que encuentra un cruce decide tomar una decisión que guarda en la memoria. Lo mismo en el caso de que llegue a una pared y no pueda seguir, para dar media vuelta. Cada vez que se da media vuelta sabe que ese camino que recorrió desde la última decisión es incorrecto, por lo que elimina de la memoria ese camino cambiando la penúltima decisión tomada, por otra más adecuada. De esa manera va recorriendo el laberinto y guardando las decisiones tomadas, cuando detecta que en su camino el sensor de líneas delantero reconoce el color blanco, sabe que llegó a la meta. Tambien sabe que está en la meta por la casilla en la que se encuentra, pues através del _encoder_ y los giros sabe en que posición está. Una vez en la meta se para y espera que lo coloquen en la casila de salida de nuevo para iniciar de nuevo el recorrido, esta vez por el camino más corto, teniendo en cuenta las decisiones que fue almacenando en la memoria.
 
-En el caso de que esté recorriendo un pasillo sin ningún cruce, aunque tenga que hacer giros a derecha o izquierda, independientemente de las casillas que avance, seguirá el único camino posible pero no tomará nota de los giros, ya que no aportan información para resolver el labertinto.
+Tseo podría volver sólo a la casilla de origen recorriendo el camino inverso que tiene guardado en la memoria, pero dependiendo de la complegidad del laberinto, y el tiempo de competición que resta, parece más rápido y adecuado llevarlo directamente en brazos al origen. Esta función se implementará en la siguiente versión, de tal manera que si no se recoge de la meta en un tiempo determinado, Tseo decida volver el solo.
+
+Tseo no necesita guardar todos los giros y avances que hace en la memoria, lo que le permite ahorrar mucha RAM y dedicarla a otros asuntos. Esto es, en el caso de que esté recorriendo un pasillo sin ningún cruce, aunque tenga que hacer giros a derecha o izquierda, independientemente de las casillas que avance, seguirá el único camino posible pero no tomará nota de los giros, ya que no aportan información para resolver el labertinto.
 
 Cuando la decisión a tomar es un giro, comprueba su orientación respecto de la marcación en grados del giróscopo y hace girar los motores uno en un sentido y el otro en el inverso, dependiendo si es un giro a derechas o a izquierdas. Va leyendo la marcación del giróscopo y hasta que no alcanza los 90º de giro, mantiene los motores en marcha.
 
@@ -72,7 +74,7 @@ Cuando avanza va comprobando a través de los sensores VL si tiene o no pared a 
 
 Al final, después de recorrer todo el laberinto, hace un pequeño baile mientras toca una alegre canción.
 
-Por otra parte, a través del encoder, que está conectado a las interrupciones (pin 2), va contando los pasos que avanza, de tal manera que recorrida la longitud de una casilla y sabiendo la orientación en la que está, actualiza su posición. De esa manera sabe en que casilla está en cada momento, de tal manera que reconoce por su situación cuando está en la casilla de meta. Esta funcionalidad está pensada para utilizar el sistema de resolución por inundación, todavía sin implementar por la poca velocidad del Arduino.
+Por otra parte, a través del encoder, que está conectado a las interrupciones (pin 2), va contando los pasos que avanza, de tal manera que recorrida la longitud de una casilla y sabiendo la orientación en la que está, actualiza su posición. De esa manera sabe en que casilla está en cada momento, y reconoce por su situación cuando está en la casilla de meta. Esta funcionalidad está pensada para utilizar el sistema de resolución por _inundación_, todavía en evaluación por las capacidades y potencia del **ATmega328P** del Arduino. Otros robots que trabajan por la regla de la _inundación_ disponen de procesadores más rápidos y potentes, hacerlo con un **ATmega328P** a 16 MHz es todo un reto.
 
 
 ### Construcción:
@@ -91,7 +93,7 @@ Dependiendo de los motores que incorpore el Zumo, habrá que realizar ajustes a 
 
 La carcasa incluye un hueco muy práctico para instalar el interface _Bluetooth_ (HL05 - HL06), por si se quiere hacer un seguimiento del funcionamiento desde un terminar remoto.
 
-También incluye un orificio para instalar un mástil, para llevar la bandera de Teseo, con la que se paseará de modo triunfante por el laberinto. El mástil puede ser un palillo de madera de los utilizados para las brochetas. La bandera está impresa en papel.
+También incluye un orificio para instalar un mástil, para llevar la bandera de Tseo, con la que se paseará de modo triunfante por el laberinto. El mástil puede ser un palillo de madera de los utilizados para las brochetas. La bandera está impresa en papel.
 
 
 ### Piezas impresas:

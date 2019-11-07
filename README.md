@@ -79,7 +79,7 @@ Por otra parte, a través del encoder, que está conectado a las interrupciones 
 
 ### Construcción:
 
-La construcción es muy sencilla, la base es la plataforma **_Pololu Zumo for Arduino_**, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un **_Arduino Uno_**, el sensor **QTR** del **_Zumo Refectance Sensor Array_**, el sensor de distancias **_VL6180_** y el encoder **_HC-020K_**.
+La construcción es muy sencilla, la base es la plataforma **_Pololu Zumo for Arduino_**, al que se le ha retirado la balda de Minisumo. La plataforma se complementa con un **_Arduino Uno_**, el sensor **QTR** del **_Zumo Refectance Sensor Array_**, los tres sensores de distancias **_VL6180_** y el encoder **_HC-020K_**.
 
 ![Esquema de conexión](https://github.com/NacioSystems/Tseo/blob/master/Imagenes/Conexiones.JPG "Esquema de conexión")
 

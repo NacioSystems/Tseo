@@ -508,7 +508,7 @@ void SigueCaminoLaberinto()
    delay(1000);
 
   uint16_t i = 0;
-  while(i<Long_Camino) // La última es o y no es una decisión
+  while(i<Long_Camino) // La última es 0 y no es una decisión
     {
   
        SigueSegmento();
@@ -688,13 +688,13 @@ void SigueSegmento()
                    }
              }
            
-             
+             ActualizarCasilla();
              motors.setSpeeds(0, 0);
 }   
 
 
 // FUNCION AjustarInterseccion()
-// Esta función debería llamarse despues de followSerment para llevar
+// Esta función debería llamarse despues de Siguesegmento para llevar
 // el robot al centro de la intersección.
 void AjustarInterseccion()  
 {

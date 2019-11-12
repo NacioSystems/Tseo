@@ -126,6 +126,10 @@ En la carpeta de piezas impresas, están los modelos Stl del soporte del encoder
 ### Autor:
 **Ignacio Otero**
 
+### Agradecimientos:
+
+Muchas gracias **Bea** por tu colaboración en la revisión y corrección de esta página.
+
 ### Licencia:
 Todos estos productos están liberados mediante Creative Commons Attribution-ShareAlike 4.0 International License.
 
